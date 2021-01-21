@@ -119,6 +119,7 @@ public class ejercicio07 {
 		Scanner teclado = new Scanner(System.in) ;
 		
 		int[][] array = new int[3][3] ;
+		String[][] interfaz = new String[3][3] ;
 		
 		int filas , columnas ;
 		
@@ -131,14 +132,23 @@ public class ejercicio07 {
 			}
 		}
 		
+		for(int x = 0 ; x < interfaz.length ; x++){
+			
+			for(int y = 0 ; y < interfaz[2].length ; y++) {
+				
+				interfaz[x][y] = "-" ;
+				
+			}
+		}
+		
 		do {
 			
 		
-			for(int x = 0 ; x < array.length ; x++){
+			for(int x = 0 ; x < interfaz.length ; x++){
 				
-				for(int y = 0 ; y < array[2].length ; y++) {
+				for(int y = 0 ; y < interfaz[2].length ; y++) {
 					
-					System.out.print("\t" + array[x][y]);
+					System.out.print("\t" + interfaz[x][y]);
 					
 				}
 				
@@ -155,11 +165,16 @@ public class ejercicio07 {
 					columnas = teclado.nextInt() ;
 					columnas-- ;
 					
+					for(int x = 0 ; x < 16 ; x++) {
+						System.out.println("");
+					}
+					
 				}while((filas < 0) || (filas > 2) || (columnas < 0) || (columnas > 2) ) ;
 				
 			}while(array[filas][columnas] != 0) ;
 			
 			array[filas][columnas] = 1 ;
+			interfaz[filas][columnas] = "X" ;
 			
 			
 			if(comprobar(array) == 1) {
@@ -178,6 +193,7 @@ public class ejercicio07 {
 			}while(array[filas][columnas] != 0) ;
 			
 			array[filas][columnas] = 2 ;
+			interfaz[filas][columnas] = "O" ;
 			
 			if(comprobar(array) == 2) {
 				System.out.println("Has perdido");
@@ -200,6 +216,7 @@ public class ejercicio07 {
 		Scanner teclado = new Scanner(System.in) ;
 		
 		int[][] array = new int[3][3] ;
+		String[][] interfaz = new String[3][3] ;
 		
 		int filas , columnas, filas2, columnas2 ;
 		
@@ -212,14 +229,23 @@ public class ejercicio07 {
 			}
 		}
 		
+		for(int x = 0 ; x < interfaz.length ; x++){
+			
+			for(int y = 0 ; y < interfaz[2].length ; y++) {
+				
+				interfaz[x][y] = "-" ;
+				
+			}
+		}
+		
 		do {
 			
 		
-			for(int x = 0 ; x < array.length ; x++){
+			for(int x = 0 ; x < interfaz.length ; x++){
 				
-				for(int y = 0 ; y < array[2].length ; y++) {
+				for(int y = 0 ; y < interfaz[2].length ; y++) {
 					
-					System.out.print("\t" + array[x][y]);
+					System.out.print("\t" + interfaz[x][y]);
 					
 				}
 				
@@ -228,33 +254,38 @@ public class ejercicio07 {
 			
 			do {
 				do {
-					System.out.print("(J1)Introduzca la fila (1-3):");
+					System.out.print("(J1)Introduzca la fila(X) (1-3):");
 					filas = teclado.nextInt() ;
 					filas-- ;
 					
-					System.out.print("(J2)Introduzca la columna (1-3):");
+					System.out.print("(J1)Introduzca la columna(X) (1-3):");
 					columnas = teclado.nextInt() ;
 					columnas-- ;
+					
+					for(int x = 0 ; x < 16 ; x++) {
+						System.out.println("");
+					}
 					
 				}while((filas < 0) || (filas > 2) || (columnas < 0) || (columnas > 2) ) ;
 				
 			}while(array[filas][columnas] != 0) ;
 			
 			array[filas][columnas] = 1 ;
+			interfaz[filas][columnas] = "X" ;
 			
 			
 			if(comprobar(array) == 1) {
-				System.out.println("Has ganado");
+				System.out.println("Ha ganado el (J1)");
 				
 				break ;
 				
 			}	
 				
-			for(int x = 0 ; x < array.length ; x++){
+			for(int x = 0 ; x < interfaz.length ; x++){
 					
-				for(int y = 0 ; y < array[2].length ; y++) {
+				for(int y = 0 ; y < interfaz[2].length ; y++) {
 						
-					System.out.print("\t" + array[x][y]);
+					System.out.print("\t" + interfaz[x][y]);
 						
 				}
 					
@@ -272,14 +303,19 @@ public class ejercicio07 {
 					columnas2 = teclado.nextInt() ;
 					columnas2-- ;
 					
+					for(int x = 0 ; x < 16 ; x++) {
+						System.out.println("");
+					}
+					
 				}while((filas2 < 0) || (filas2 > 2) || (columnas2 < 0) || (columnas2 > 2) ) ;
 				
 			}while(array[filas2][columnas2] != 0) ;
 			
 			array[filas2][columnas2] = 2 ;
+			interfaz[filas2][columnas2] = "O" ;
 			
 			if(comprobar(array) == 2) {
-				System.out.println("Has perdido");
+				System.out.println("Ha ganado el (J2)");
 				
 				break ;
 			}
@@ -296,7 +332,7 @@ public class ejercicio07 {
 	
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		Scanner teclado = new Scanner(System.in) ;
 		
@@ -305,6 +341,11 @@ public class ejercicio07 {
 		System.out.println("________________________________");
 		System.out.println("|Bienvenido a este tres en raya|");
 		System.out.println("--------------------------------");
+		
+		Thread.sleep(3000);
+		for(int x = 0 ; x < 16 ; x++) {
+			System.out.println("");
+		}
 		
 		do {
 			do {
@@ -315,6 +356,10 @@ public class ejercicio07 {
 				System.out.println("3:Salir") ;
 				System.out.print("Modo de juego:");
 				menu = teclado.nextInt() ;
+				
+				for(int x = 0 ; x < 16 ; x++) {
+					System.out.println("");
+				}
 				
 			}while(menu != 1 && menu != 2 && menu !=3) ;
 			
